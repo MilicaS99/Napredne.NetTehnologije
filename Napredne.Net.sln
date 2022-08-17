@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{D9AB6475-4E78-4A09-BFCD-151A18EE87DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{26D09FF4-E7F4-419C-9783-5C1924E99D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCapp", "MVCapp\MVCapp.csproj", "{1DCE4FDB-E431-4677-AD3A-9AF7DFF06B39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9AB6475-4E78-4A09-BFCD-151A18EE87DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AB6475-4E78-4A09-BFCD-151A18EE87DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AB6475-4E78-4A09-BFCD-151A18EE87DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AB6475-4E78-4A09-BFCD-151A18EE87DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D09FF4-E7F4-419C-9783-5C1924E99D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D09FF4-E7F4-419C-9783-5C1924E99D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D09FF4-E7F4-419C-9783-5C1924E99D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D09FF4-E7F4-419C-9783-5C1924E99D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCE4FDB-E431-4677-AD3A-9AF7DFF06B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCE4FDB-E431-4677-AD3A-9AF7DFF06B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCE4FDB-E431-4677-AD3A-9AF7DFF06B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCE4FDB-E431-4677-AD3A-9AF7DFF06B39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4774DF53-4B4C-46E1-B17C-70B4E3D24D48}
+	EndGlobalSection
+EndGlobal
