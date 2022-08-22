@@ -15,7 +15,8 @@ namespace IdentityServer.Configuration
             new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResource("roles","User role(s)",new List<string>{"role"})
             };
 
 
@@ -37,7 +38,8 @@ namespace IdentityServer.Configuration
             // scopes that client has access to
             AllowedScopes = { "api1",
                            IdentityServerConstants.StandardScopes.OpenId,
-                IdentityServerConstants.StandardScopes.Profile}
+                IdentityServerConstants.StandardScopes.Profile,
+                   }
         },
         // interactive ASP.NET Core MVC client
         new Client
@@ -64,7 +66,8 @@ namespace IdentityServer.Configuration
             {
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
-                "api1"
+                "api1",
+                "roles"
             }
         }
             };

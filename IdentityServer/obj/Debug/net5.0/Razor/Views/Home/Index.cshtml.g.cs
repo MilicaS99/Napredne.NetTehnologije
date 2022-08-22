@@ -20,6 +20,13 @@ using IdentityServerHost.Quickstart.UI;
 #line hidden
 #nullable disable
 #nullable restore
+#line 2 "C:\Users\Milena\source\repos\Napredne.Net\IdentityServer\Views\_ViewImports.cshtml"
+using IdentityServer.Quickstart.UserRegistration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Milena\source\repos\Napredne.Net\IdentityServer\Views\Home\Index.cshtml"
 using System.Diagnostics;
 
@@ -27,7 +34,7 @@ using System.Diagnostics;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dab9aa3312edb80414fe6ce68ce986c4cd2522cb", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bec599faa2156b5976535a194fedf34093459faa", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1b54a484a4f38294c44b55fd07cfb90b684e4389", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/icon.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -68,7 +75,7 @@ using System.Diagnostics;
 #line hidden
 #nullable disable
             WriteLiteral("\n<div class=\"welcome-page\">\n    <h1>\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb4940", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb5154", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -90,7 +97,7 @@ using System.Diagnostics;
 #line hidden
 #nullable disable
             WriteLiteral(")</small>\n    </h1>\n\n    <ul>\n        <li>\n            IdentityServer publishes a\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb6398", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb6612", async() => {
                 WriteLiteral("discovery document");
             }
             );
@@ -105,7 +112,7 @@ using System.Diagnostics;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n            where you can find metadata and links to all the endpoints, key material, etc.\n        </li>\n        <li>\n            Click ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb7622", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb7836", async() => {
                 WriteLiteral("here");
             }
             );
@@ -120,7 +127,7 @@ using System.Diagnostics;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" to see the claims for your current session.\n        </li>\n        <li>\n            Click ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb8784", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab9aa3312edb80414fe6ce68ce986c4cd2522cb8998", async() => {
                 WriteLiteral("here");
             }
             );

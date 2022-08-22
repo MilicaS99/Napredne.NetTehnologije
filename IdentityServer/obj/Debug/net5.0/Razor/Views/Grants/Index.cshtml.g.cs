@@ -19,8 +19,15 @@ using IdentityServerHost.Quickstart.UI;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Milena\source\repos\Napredne.Net\IdentityServer\Views\_ViewImports.cshtml"
+using IdentityServer.Quickstart.UserRegistration;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6729cd3f773c844ab1a083912ba24209dc868e46", @"/Views/Grants/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bec599faa2156b5976535a194fedf34093459faa", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1b54a484a4f38294c44b55fd07cfb90b684e4389", @"/Views/_ViewImports.cshtml")]
     public class Views_Grants_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<GrantsViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Revoke", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -106,7 +113,7 @@ WriteAttributeValue("", 903, grant.ClientLogoUrl, 903, 20, false);
 #line hidden
 #nullable disable
             WriteLiteral("</strong>\n                        </div>\n\n                        <div class=\"col-sm-2\">\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6729cd3f773c844ab1a083912ba24209dc868e465869", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6729cd3f773c844ab1a083912ba24209dc868e466083", async() => {
                 WriteLiteral("\n                                <input type=\"hidden\" name=\"clientId\"");
                 BeginWriteAttribute("value", " value=\"", 1221, "\"", 1244, 1);
 #nullable restore

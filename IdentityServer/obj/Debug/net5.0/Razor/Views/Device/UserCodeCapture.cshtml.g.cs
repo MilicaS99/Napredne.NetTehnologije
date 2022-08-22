@@ -19,8 +19,15 @@ using IdentityServerHost.Quickstart.UI;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Milena\source\repos\Napredne.Net\IdentityServer\Views\_ViewImports.cshtml"
+using IdentityServer.Quickstart.UserRegistration;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0de694a584b820ca0f46b8041f8dfd2e8020e055", @"/Views/Device/UserCodeCapture.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bec599faa2156b5976535a194fedf34093459faa", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1b54a484a4f38294c44b55fd07cfb90b684e4389", @"/Views/_ViewImports.cshtml")]
     public class Views_Device_UserCodeCapture : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<string>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_ValidationSummary", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -52,7 +59,7 @@ using IdentityServerHost.Quickstart.UI;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\n<div class=\"page-device-code\">\n    <div class=\"lead\">\n        <h1>User Code</h1>\n        <p>Please enter the code displayed on your device.</p>\n    </div>\n\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0de694a584b820ca0f46b8041f8dfd2e8020e0554031", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0de694a584b820ca0f46b8041f8dfd2e8020e0554245", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -67,7 +74,7 @@ using IdentityServerHost.Quickstart.UI;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n\n    <div class=\"row\">\n        <div class=\"col-sm-6\">\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0de694a584b820ca0f46b8041f8dfd2e8020e0555218", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0de694a584b820ca0f46b8041f8dfd2e8020e0555432", async() => {
                 WriteLiteral(@"
                 <div class=""form-group"">
                     <label for=""userCode"">User Code:</label>

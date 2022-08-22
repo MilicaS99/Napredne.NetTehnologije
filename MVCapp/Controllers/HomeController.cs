@@ -31,10 +31,12 @@ namespace MVCapp.Controllers
         {
             return View();
         }
-        public IActionResult Logout()
+
+       public IActionResult Logout()
         {
             return SignOut("Cookies", "oidc");
         }
+       
 
         [HttpGet]
         public async Task<IActionResult> CallApi()

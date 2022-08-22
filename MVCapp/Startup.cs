@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using IdentityModel;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MVCapp
 {
@@ -51,6 +52,13 @@ namespace MVCapp
                 {
                     NameClaimType = JwtClaimTypes.GivenName,
                     ValidateIssuer = true
+                };
+                options.Scope.Add("roles");
+                options.ClaimActions.MapUniqueJsonKey("role", "role");
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    RoleClaimType = "role"
                 };
             });
         }

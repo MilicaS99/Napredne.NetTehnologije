@@ -1,15 +1,20 @@
+using Domain;
 using IdentityServer.Configuration;
 using IdentityServer4;
 using IdentityServerHost.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace IdentityServer
@@ -18,6 +23,12 @@ namespace IdentityServer
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
+        public IConfiguration Configuration { get; set; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
@@ -32,16 +43,67 @@ namespace IdentityServer
                             .AllowAnyMethod();
                     });
             });
+            //proba
+            var connectionString = Configuration.GetConnectionString("sqlConnection");
 
-            services.AddIdentityServer(options =>
+            services.AddDbContext<Context>(config =>
             {
-            })
-                    .AddInMemoryIdentityResources(InMemoryConfig.IdentityResources)
-                    .AddInMemoryApiScopes(InMemoryConfig.ApiScopes)
-                    .AddInMemoryClients(InMemoryConfig.Clients)
-                    .AddTestUsers(TestUsers.Users)
-                    .AddDeveloperSigningCredential();
+                config.UseSqlServer(connectionString);
+                //config.UseInMemoryDatabase("Memory");
+            });
 
+            // AddIdentity registers the services
+
+          
+
+            services.AddIdentity<Person, IdentityRole<int>>(config =>
+            {
+                config.Password.RequiredLength = 4;
+                config.Password.RequireDigit = false;
+                config.Password.RequireNonAlphanumeric = false;
+                config.Password.RequireUppercase = false;
+            })
+                .AddEntityFrameworkStores<Context>();
+
+            // kraj probe
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "IdentityServer.Cookie";
+                config.LoginPath = "/Account/Login";
+                config.LogoutPath = "/Account/Logout";
+                config.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                config.SlidingExpiration = true;
+            });
+            services.AddIdentityServer(options =>
+             {
+             }).AddAspNetIdentity<Person>()
+                     .AddInMemoryIdentityResources(InMemoryConfig.IdentityResources)
+                     .AddInMemoryApiScopes(InMemoryConfig.ApiScopes)
+                     .AddInMemoryClients(InMemoryConfig.Clients)
+                     //.AddTestUsers(TestUsers.Users)
+                     .AddDeveloperSigningCredential();
+
+
+            #region baza
+            /*var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            services.AddIdentityServer()
+                .AddTestUsers(TestUsers.Users)
+                .AddDeveloperSigningCredential() //not something we want to use in a production environment
+                .AddConfigurationStore(opt =>
+                {
+                    opt.ConfigureDbContext = c => c.UseSqlServer(Configuration.GetConnectionString("sqlConnection"),
+                        sql => sql.MigrationsAssembly(migrationAssembly));
+                })
+                .AddOperationalStore(opt =>
+                {
+                    opt.ConfigureDbContext = o => o.UseSqlServer(Configuration.GetConnectionString("sqlConnection"),
+                        sql => sql.MigrationsAssembly(migrationAssembly));
+                });*/
+            #endregion
+
+            //services.AddDbContext<Context>();
+            // services.AddIdentity<Person, IdentityRole<int>>().AddEntityFrameworkStores<Context>();
 
             services.AddControllersWithViews();
         }
@@ -57,10 +119,10 @@ namespace IdentityServer
             app.UseStaticFiles();
             app.UseCors("AllowAllOrigins");
            
-            app.UseCookiePolicy(new CookiePolicyOptions
+          app.UseCookiePolicy(new CookiePolicyOptions
             {
                 Secure = CookieSecurePolicy.Always
-            });
+            });////ne kontam zasto ne radi bez ovoga
 
             app.UseRouting();
 
