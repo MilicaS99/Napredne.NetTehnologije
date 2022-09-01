@@ -1,7 +1,9 @@
+using AutoMapper;
 using Domain;
 using IdentityServer.Configuration;
 using IdentityServer4;
 using IdentityServerHost.Quickstart.UI;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Owin.Security.Google;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,18 +65,20 @@ namespace IdentityServer
                 config.Password.RequireDigit = false;
                 config.Password.RequireNonAlphanumeric = false;
                 config.Password.RequireUppercase = false;
+            
             })
-                .AddEntityFrameworkStores<Context>();
+                .AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
 
             // kraj probe
 
-            services.ConfigureApplicationCookie(config =>
+           services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "IdentityServer.Cookie";
                 config.LoginPath = "/Account/Login";
                 config.LogoutPath = "/Account/Logout";
                 config.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 config.SlidingExpiration = true;
+                
             });
             services.AddIdentityServer(options =>
              {
@@ -84,6 +89,24 @@ namespace IdentityServer
                      //.AddTestUsers(TestUsers.Users)
                      .AddDeveloperSigningCredential();
 
+            
+            services.AddAuthentication().AddGoogle("Google", options =>
+             {
+
+                  // options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                  options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                 options.ClientId = "649453208247-5e306d85tffordccmfdt9m1ojah1vjf5.apps.googleusercontent.com";
+
+                 options.ClientSecret = "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";
+
+                
+
+             });
+
+            
+          
 
             #region baza
             /*var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
@@ -105,6 +128,10 @@ namespace IdentityServer
             //services.AddDbContext<Context>();
             // services.AddIdentity<Person, IdentityRole<int>>().AddEntityFrameworkStores<Context>();
 
+            // services.AddAutoMapper();
+
+            
+
             services.AddControllersWithViews();
         }
 
@@ -118,15 +145,20 @@ namespace IdentityServer
 
             app.UseStaticFiles();
             app.UseCors("AllowAllOrigins");
-           
-          app.UseCookiePolicy(new CookiePolicyOptions
+
+            app.UseCookiePolicy(new CookiePolicyOptions
             {
-                Secure = CookieSecurePolicy.Always
-            });////ne kontam zasto ne radi bez ovoga
+                Secure = CookieSecurePolicy.Always,
+  
+
+            }) ;
 
             app.UseRouting();
 
             app.UseIdentityServer();
+
+
+         
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

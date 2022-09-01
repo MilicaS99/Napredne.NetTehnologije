@@ -17,7 +17,7 @@ namespace Domain.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.11");
 
             modelBuilder.Entity("Domain.Person", b =>
                 {
@@ -246,6 +246,40 @@ namespace Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasDiscriminator().HasValue("User");
+                });
+
+            modelBuilder.Entity("Domain.Person", b =>
+                {
+                    b.OwnsMany("Domain.Obligation", "Obligations", b1 =>
+                        {
+                            b1.Property<int>("PersonId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("ObligationId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .UseIdentityColumn();
+
+                            b1.Property<DateTime>("Deadline")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("Description")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Name")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("PersonId", "ObligationId");
+
+                            b1.ToTable("Obligations");
+
+                            b1.WithOwner("Person")
+                                .HasForeignKey("PersonId");
+
+                            b1.Navigation("Person");
+                        });
+
+                    b.Navigation("Obligations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

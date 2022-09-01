@@ -1,0 +1,105 @@
+﻿@model MVCapp.Models.UserObligationViewModel
+
+@{
+    ViewData["Title"] = "CreateObligation";
+}
+
+<h1>CreateObligation</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateObligation" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label"></label>
+                <input asp-for="User.LastName" class="form-control" />
+
+            </div>
+         
+                <div class="form-group">
+                    <label asp-for="User.Obligation.Name" class="control-label"></label>
+                    <input asp-for="User.Obligation.Name" class="form-control" id="oblname" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.Obligation.Description" class="control-label"></label>
+                    <input asp-for="User.Obligation.Description" class="form-control" id="obldesc" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.Obligation.Deadline" class="control-label"></label>
+                    <input asp-for="User.Obligation.Deadline" class="form-control" id="oblded" />
+
+                </div>
+
+
+                <div class="form-group">
+                    <button class="btn btn-dark" id="addObligation" type="button" asp-action="AddObligation">Add Obligation</button>
+
+                </div>
+               
+                <table class="table" id="obligations">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sn
+                            </th>
+                            <th>
+                                ObligationName
+                            </th>
+                            <th>
+                                ObligationDescription
+                            </th>
+                            <th>
+                                ObligationDeadline
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>
+
+@section Scripts {
+
+    <script>
+        $("#addObligation").click(function () {
+        $.ajax({
+
+            url: "@Url.Action("AddObligation", "Obligation")",
+            method: "get",
+            data: { name: $("#oblname").val(), desc: $("#obldesc").val(), deadline: $("#oblded").val(), number: $("#obligations tbody tr").length +1},
+            success: function (data) {
+                $("#obligations tbody").append(data);
+                $("#oblname").val('');
+                $("#obldesc").val('');
+               
+
+            },
+            error: function (data) {
+                alert("Error");
+            }
+
+
+
+
+        });
+    });
+    </script>
+}

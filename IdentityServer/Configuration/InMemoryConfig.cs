@@ -51,9 +51,6 @@ namespace IdentityServer.Configuration
 
             AllowedGrantTypes=GrantTypes.Code,
 
-           //  RedirectUris = new List<string>{ "http://localhost:5002/signin-oidc" },
-          
-
             // where to redirect to after login
            RedirectUris = { "http://localhost:5002/signin-oidc" },
 
@@ -66,6 +63,7 @@ namespace IdentityServer.Configuration
             {
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
+            
                 "api1",
                 "roles"
             }

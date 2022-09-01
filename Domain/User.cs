@@ -10,5 +10,11 @@ namespace Domain
     {
 
         public  DateTime DateOfRegistration { get; set; }
+
+      //  public DateTime DateofBirth { get; set; }
+
+      //  public string TelefonNumber { get; set; }
+
+      //  public string Adress { get; set; }
     }
 }

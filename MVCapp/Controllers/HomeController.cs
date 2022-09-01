@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using DataAccessLayer.UnitOfWork;
+using Domain;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCapp.Models;
@@ -10,22 +12,41 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace MVCapp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            this.unitOfWork = unitOfWork;
+        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public IActionResult Index(string Search)
+        {
+            IndexViewModel vm = new IndexViewModel();
+            List<User> persons = unitOfWork.UserRepository.GetAll().OfType<User>().ToList();
+
+          vm.Persons = persons;
+
+            if (!string.IsNullOrEmpty(Search))
+            {
+                vm.Persons = unitOfWork.UserRepository.SearchByFirstLastName(Search).OfType<User>().ToList();
+            }
+            // vm.Persons = unitOfWork.UserRepository.SearchByFirstLastName(Search).ToList();
+
+            return View(vm);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+
 
         public IActionResult Privacy()
         {
@@ -66,6 +87,8 @@ namespace MVCapp.Controllers
             //
             //return View("json");
         }
+
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

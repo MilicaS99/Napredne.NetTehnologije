@@ -1,0 +1,15 @@
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.deps.json
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\ref\DataAccessLayer.dll
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\Domain.dll
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\bin\Debug\net5.0\Domain.pdb
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfo.cs
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.CopyComplete
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.dll
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\ref\DataAccessLayer.dll
+C:\Users\Milena\source\repos\Napredne.Net\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.pdb

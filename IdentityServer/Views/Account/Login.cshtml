@@ -4,7 +4,7 @@
 @inject UserManager<Domain.Person> UserManager
 <div class="login-page">
     <div class="lead">
-        <h1>Login</h1>
+        <h1>Login Page</h1>
         <p>Choose how to login</p>
     </div>
 
@@ -32,7 +32,7 @@
                     <label asp-for="Password"></label>
                     <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
                 </div>
-                @if (Model.AllowRememberLogin)
+                @*@if (Model.AllowRememberLogin)
                 {
 <div class="form-group">
     <div class="form-check">
@@ -41,7 +41,7 @@
             Remember My Login
         </label>
     </div>
-</div>}
+</div>}*@
                 <div class="form-group">
                     <a asp-action="Register"
                        asp-controller="Account"
@@ -50,42 +50,19 @@
                     </a>
                 </div>
                 <button class="btn btn-primary" name="button" value="login">Login</button>
-                <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
+           
             </form>
         </div>
     </div>
 </div>}
 
-        @if (Model.VisibleExternalProviders.Any())
+    <form asp-controller="Account" asp-action="ExternalLogin"
+          asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        @foreach (var provider in Model.ExternalProviderss)
         {
-<div class="col-sm-6">
-    <div class="card">
-        <div class="card-header">
-            <h2>External Account</h2>
-        </div>
-        <div class="card-body">
-            <ul class="list-inline">
-                @foreach (var provider in Model.VisibleExternalProviders)
-                {
-<li class="list-inline-item">
-    <a class="btn btn-secondary"
-       asp-controller="External"
-       asp-action="Challenge"
-       asp-route-scheme="@provider.AuthenticationScheme"
-       asp-route-returnUrl="@Model.ReturnUrl">
-        @provider.DisplayName
-    </a>
-</li>}
-            </ul>
-        </div>
-    </div>
-</div>}
-
-        @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
-        {
-<div class="alert alert-warning">
-    <strong>Invalid login request</strong>
-    There are no login schemes configured for this request.
-</div>}
-    </div>
-</div>
+           <button name="provider"
+                            type="submit"
+                            value="@provider.Name">
+                        @provider.Name
+                    </button>}
+    </form>

@@ -23,10 +23,13 @@ namespace Domain
 
         public DbSet<Admin> Admins { get; set; }
 
-     
+     public DbSet<Obligation> Obligations { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=IdentityServerAuth;Trusted_Connection=True");
+         
+          base.OnConfiguring(optionsBuilder);
+
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=IdentityServerAuth;Trusted_Connection=True");
         }
 
 
@@ -34,6 +37,8 @@ namespace Domain
         {
             base.OnModelCreating(builder);
             builder.Entity<Person>().ToTable("Osobe");
+
+           builder.Entity<Person>().OwnsMany(p => p.Obligations).WithOwner(o => o.Person);
         }
     }
 }
