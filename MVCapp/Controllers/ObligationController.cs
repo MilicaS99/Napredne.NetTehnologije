@@ -107,5 +107,15 @@ namespace MVCapp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult DetailsObligation(int id)
+        {
+            Person p = (User)uow.PersonRepository.SearchById(new Person { Id = id });
+
+            UserObligationViewModel model = new UserObligationViewModel();
+            model.Obligations = p.Obligations;
+
+            return View(model);
+        }
     }
 }

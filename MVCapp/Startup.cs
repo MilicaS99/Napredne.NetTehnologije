@@ -34,7 +34,7 @@ namespace MVCapp
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";//jer kada trebamo usera da log-in ujemo koristicemo openid connect
+                options.DefaultChallengeScheme = "oidc";
             })
             .AddCookie("Cookies")
             .AddOpenIdConnect("oidc", options =>
@@ -65,13 +65,7 @@ namespace MVCapp
                     NameClaimType = JwtClaimTypes.GivenName,
                     ValidateIssuer = true
                 };
-                options.Scope.Add("roles");
-                options.ClaimActions.MapUniqueJsonKey("role", "role");
-
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    RoleClaimType = "role"
-                };
+               
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

@@ -1,0 +1,38 @@
+﻿@model UserObligationViewModel
+@using Domain
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Obligation Name</th>
+            <th>Obligation Description</th>
+            <th>Obligation Deadline</th>
+        </tr>
+    </thead>
+
+  
+
+        <tbody id="divResult">
+            @if (Model.Obligations.Count != 0)
+            {
+                @foreach (Obligation item in Model.Obligations)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        
+                        <td>@item.Deadline</td>
+                     
+                    </tr>
+                }}
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center">User does not have any obligation!</td>
+                </tr>
+            }
+        </tbody>
+</table>
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home Page</a>
+</div>

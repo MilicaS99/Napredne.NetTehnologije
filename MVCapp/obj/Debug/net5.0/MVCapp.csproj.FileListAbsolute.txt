@@ -158,3 +158,4 @@ C:\Users\Milena\source\repos\Napredne.Net\MVCapp\obj\Debug\net5.0\Razor\Views\Ob
 C:\Users\Milena\source\repos\Napredne.Net\MVCapp\obj\Debug\net5.0\Razor\Views\Obligation\AddObligation.cshtml.g.cs
 C:\Users\Milena\source\repos\Napredne.Net\MVCapp\obj\Debug\net5.0\Razor\Views\Obligation\EditObligation.cshtml.g.cs
 C:\Users\Milena\source\repos\Napredne.Net\MVCapp\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\Milena\source\repos\Napredne.Net\MVCapp\obj\Debug\net5.0\Razor\Views\Obligation\DetailsObligation.cshtml.g.cs
