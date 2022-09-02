@@ -53,7 +53,7 @@ namespace MVCapp
 
                 options.Scope.Add("api1");
                 options.Scope.Add("openid");
-
+                
                 options.Scope.Add("profile");
                 options.GetClaimsFromUserInfoEndpoint = true;
                 
@@ -65,7 +65,14 @@ namespace MVCapp
                     NameClaimType = JwtClaimTypes.GivenName,
                     ValidateIssuer = true
                 };
-               
+                options.Scope.Add("roles");
+                options.ClaimActions.MapUniqueJsonKey("role", "role");
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    RoleClaimType = "role"
+                };
+
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

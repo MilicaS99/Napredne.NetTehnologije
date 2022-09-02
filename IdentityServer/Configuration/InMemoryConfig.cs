@@ -16,7 +16,7 @@ namespace IdentityServer.Configuration
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                //new IdentityResource("roles","User role(s)",new List<string>{"role"})
+                new IdentityResource("roles","User role(s)",new List<string>{"role"})
             };
 
 
@@ -65,6 +65,7 @@ namespace IdentityServer.Configuration
                 IdentityServerConstants.StandardScopes.Profile,
             
                 "api1",
+                "roles"
               
             }
         }
